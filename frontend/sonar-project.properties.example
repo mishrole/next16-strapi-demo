@@ -1,0 +1,23 @@
+# =========================================================================
+# Plantilla de configuración de SonarQube para el proyecto
+# Copia este archivo, renómbralo a 'sonar-project.properties' y llena los datos.
+# =========================================================================
+
+# Parámetros de conexión al servidor local o remoto
+sonar.host.url=http://localhost:9000
+sonar.token=TU_SONARQUBE_TOKEN_AQUI
+
+# Identificadores del proyecto
+sonar.projectKey=TU_KEY_DEL_PROYECTO_AQUI
+sonar.projectName=TU_NOMBRE_DEL_PROYECTO_AQUI
+sonar.projectVersion=1.0.0
+
+# Configuración de fuentes
+sonar.sources=.
+sonar.sourceEncoding=UTF-8
+
+# Exclusiones
+sonar.exclusions=**/node_modules/**, **/.next/**, **/out/**, **/dist/**
+
+# Control de calidad preventivo para el bloqueo de commits con Husky
+sonar.qualitygate.wait=true

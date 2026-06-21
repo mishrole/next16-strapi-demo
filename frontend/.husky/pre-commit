@@ -1,0 +1,16 @@
+echo "======================================================="
+echo "Iniciando análisis preventivo directo con SonarQube..."
+echo "======================================================="
+
+if ! cmd.exe //c "sonar-scanner.bat"; then
+    echo ""
+    echo "======================================================="
+    echo "[ERROR] El análisis falló o no cumple el Quality Gate."
+    echo "Commit abortado de manera preventiva."
+    echo "======================================================="
+    echo ""
+    exit 1
+fi
+
+echo "Análisis exitoso. Procediendo con el commit."
+exit 0
