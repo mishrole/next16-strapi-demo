@@ -2,7 +2,8 @@ import { IUserData } from "@/interfaces/IUserData"
 import qs from "qs"
 import { IHomePage } from "./interfaces/IStrapi"
 
-export const STRAPI_BASE_URL = "http://127.0.0.1:1337"
+export const STRAPI_BASE_URL =
+  process.env.STRAPI_BASE_URL || "http://127.0.0.1:1337"
 
 const QUERY_HOME_PAGE = {
   populate: {
