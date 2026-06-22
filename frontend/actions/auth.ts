@@ -11,7 +11,6 @@ const COOKIE_CONFIG = {
   maxAge: 60 * 60 * 24 * 7, // 1 week
   path: "/",
   httpOnly: true, // Only accessible to the server
-  domain: process.env.HOST ?? "localhost", // Domain where the cookie will be accessible
   secure: process.env.NODE_ENV === "production", // Only accessible via HTTPS in production
 }
 
