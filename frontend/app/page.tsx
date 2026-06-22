@@ -1,5 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { getHomePage, getStrapiMedia } from "@/lib/strapi/strapi"
+import { cacheLife } from "next/cache"
+import { Suspense } from "react"
 
 export async function generateMetadata() {
   const strapiData = await getHomePage()
@@ -10,7 +12,19 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Home() {
+export default function Home() {
+  return (
+    <Suspense fallback={<main className="container mx-auto py-6" />}>
+      <HomeContent />
+    </Suspense>
+  )
+}
+
+async function HomeContent() {
+  "use cache"
+
+  cacheLife("hours")
+
   const strapiData = await getHomePage()
 
   if (!strapiData) {

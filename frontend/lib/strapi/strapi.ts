@@ -1,6 +1,5 @@
 import { IUserData } from "@/interfaces/IUserData"
 import qs from "qs"
-import { cache } from "react"
 import { IHomePage } from "./interfaces/IStrapi"
 
 export const STRAPI_BASE_URL =
@@ -28,13 +27,15 @@ const QUERY_HOME_PAGE = {
   },
 }
 
-export const getHomePage = cache(async function getHomePage() {
+export async function getHomePage() {
+  "use cache"
+
   const query = qs.stringify(QUERY_HOME_PAGE)
 
   const response = await getData(`/api/home-page?${query}`)
 
   return response?.data as IHomePage
-})
+}
 
 export async function getData(path: string) {
   try {
