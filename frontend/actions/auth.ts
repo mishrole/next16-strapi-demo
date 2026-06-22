@@ -68,13 +68,11 @@ export async function logoutUserAction() {
     const cookieStore = await cookies()
 
     cookieStore.delete("jwt")
-
-    redirect("/signin")
   } catch (error) {
     console.error("Error logging out user:", error)
-
-    redirect("/signin")
   }
+
+  redirect("/signin")
 }
 
 export async function loginUserAction(
