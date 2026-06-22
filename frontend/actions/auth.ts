@@ -7,8 +7,7 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import z from "zod"
 
-export const STRAPI_BASE_URL =
-  process.env.STRAPI_BASE_URL || "http://127.0.0.1:1337"
+const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL || "http://127.0.0.1:1337"
 
 const COOKIE_CONFIG = {
   maxAge: 60 * 60 * 24 * 7, // 1 week
