@@ -4,6 +4,10 @@ const STRAPI_HOST = process.env.STRAPI_BASE_URL
   ? new URL(process.env.STRAPI_BASE_URL).hostname
   : ""
 
+const STRAPI_MEDIA_HOST = process.env.STRAPI_BASE_MEDIA_URL
+  ? new URL(process.env.STRAPI_BASE_MEDIA_URL).hostname
+  : ""
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   images: {
@@ -18,6 +22,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: STRAPI_HOST,
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: STRAPI_MEDIA_HOST,
         pathname: "/**",
       },
     ],

@@ -5,6 +5,9 @@ import { IHomePage } from "./interfaces/IStrapi"
 export const STRAPI_BASE_URL =
   process.env.STRAPI_BASE_URL || "http://127.0.0.1:1337"
 
+export const STRAPI_BASE_MEDIA_URL =
+  process.env.STRAPI_BASE_MEDIA_URL || "http://127.0.0.1:1337/uploads"
+
 const QUERY_HOME_PAGE = {
   populate: {
     sections: {
@@ -137,5 +140,5 @@ export function getStrapiMedia(url: string | null) {
     return url
   }
 
-  return `${STRAPI_BASE_URL}${url}`
+  return `${STRAPI_BASE_MEDIA_URL}${url}`
 }
