@@ -12,6 +12,15 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const strapiData = await getHomePage()
+
+  if (!strapiData) {
+    return (
+      <main className="container mx-auto py-6">
+        <p>No se pudo cargar el contenido en este momento.</p>
+      </main>
+    )
+  }
+
   const { title, description, sections } = strapiData
 
   return (
