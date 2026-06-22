@@ -18,7 +18,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: STRAPI_HOST,
-        port: "",
         pathname: "/**",
       },
     ],
