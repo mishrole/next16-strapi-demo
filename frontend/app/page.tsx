@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
-import { getHomePage, STRAPI_BASE_URL } from "@/lib/strapi/strapi"
+import { getHomePage, getStrapiMedia } from "@/lib/strapi/strapi"
 
 export async function generateMetadata() {
   const strapiData = await getHomePage()
@@ -29,7 +29,7 @@ export default async function Home() {
       <p className="text-gray-600">{description}</p>
 
       {sections?.map((section) => {
-        const image = `${STRAPI_BASE_URL}${section.image.url}`
+        const image = getStrapiMedia(section.image.url)
 
         return (
           <div key={section.id}>

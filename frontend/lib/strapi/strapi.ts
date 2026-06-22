@@ -129,3 +129,13 @@ export async function validateJwt(jwt: string) {
     return null
   }
 }
+
+export function getStrapiMedia(url: string | null) {
+  if (!url) return ""
+
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url
+  }
+
+  return `${STRAPI_BASE_URL}${url}`
+}
